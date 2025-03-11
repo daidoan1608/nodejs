@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quản lý nhân viên</title>
+    <link rel="stylesheet" href="/src/public/css/themTK.css">
+</head>
+<body>
+    <div class="main-content">
+        <h1>Quản Lý Nhân Sự</h1>
+        <button id="openModalBtn" class="openModal">Thêm nhân viên</button>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Mã Người Dùng</th>
+                    <th>Mã NV</th>
+                    <th>Họ & Tên</th>
+                    <th>Số ĐT</th>
+                    <th>Email</th>
+                    <th>Vị trí công việc</th>
+                    <th>Sửa</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                   
+                   
+                   
+            
+                    <td>
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <div id="modalForm" class="modal">
+            <div class="register-container">
+                <h2>Thêm nhân sự</h2>
+                <form action="/dangky-taikhoan" class="signup-form" method="post">
+                    <label>Mã người dùng</label>
+                    <div class="inputForm">
+                        <input type="text" class="input" placeholder="Nhập vào mã người dùng" name="userID">
+                    </div>
+        
+                    <label>Mã nhân viên</label>
+                    <div class="inputForm">
+                        <input type="password" class="input" placeholder="Nhập vào mã nhân viên" name="staffID">
+                        <span class="togglePassword"></span>
+                    </div>
+        
+                    <label>Họ tên nhân sự</label>
+                    <div class="inputForm">
+                        <input type="password" class="input" placeholder="Nhập vào họ tên" name="fullname">
+                        <span class="togglePassword"></span>
+                    </div>
+        
+                    <label>Số điện thoại</label>
+                    <div class="inputForm">
+                        <input type="text" class="input" placeholder="Nhập vào số điện thoại" name="SDT">
+                    </div>
+        
+                    <label>Email</label>
+                    <div class="inputForm">
+                        <input type="text" class="input" placeholder="Nhập vào email" name="email">
+                    </div>
+        
+                    <label>Vị trí công việc</label>
+                    <div class="inputForm">
+                        <input type="text" class="input" placeholder="Nhập vào vị trí công việc" name="vtcv">
+                    </div>
+                    <div class="inputForm">
+                    
+                    <button class="button-submitt">Thêm</button>
+        
+                
+                </form>
+            </div>
+        </div>
+        
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("modalForm");
+        const openBtn = document.getElementById("openModalBtn");
+    
+        // Khi nhấn "Thêm Tài Khoản" -> Hiện modal
+        openBtn.addEventListener("click", function () {
+            modal.style.display = "flex";
+        });
+    
+        // Khi nhấn ngoài modal -> Ẩn modal
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+    </script>
+</html>

@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - sqlserver
+    environment:
+      - NODE_ENV=development
+      - PORT=8081  # Đảm bảo PORT trong container là 8081
+      - HOST=0.0.0.0
+      - DB_HOST=sqlserver
+      - DB_USER=sa
+      - DB_PASS=YourStrong!Passw0rd
+      - DB_NAME=mydatabase
+    command: ["npm", "start"]
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
